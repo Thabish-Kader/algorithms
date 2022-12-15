@@ -1,4 +1,5 @@
-from typing import List, ListNode,Optional
+
+from typing import List, Optional
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -13,20 +14,21 @@ class Solution:
                     return [i,j]
 
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers( l1, l2):
         l1_reverse= l1[::-1]
         l2_reverse= l2[::-1]
 
 
         s=[str(i) for i in l1_reverse]
-        s2 = [str(i) for i in l2_reverse]
+        s2=[str(i) for i in l2_reverse]
     
         # Join list items using join()
         res = int("".join(s))
         res2 = int("".join(s2))
 
         target = res + res2
+        return target
     
-    l1= [1,2,3]
-    l2=[2,3,4]
+    l1= [2,4,3]
+    l2=[5,6,4]
     print(addTwoNumbers(l1,l2))
