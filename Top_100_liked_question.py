@@ -26,8 +26,11 @@ class Solution:
         res = int("".join(s))
         res2 = int("".join(s2))
 
-        target = res + res2
-        return target
+        result = res + res2
+        target = [int(x) for x in str(result)]
+        desired_target = target[::-1]
+        
+        return desired_target
     
     l1= [2,4,3]
     l2=[5,6,4]
