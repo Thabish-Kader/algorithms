@@ -91,7 +91,7 @@ class Solution4:
         # if odd divide by 2
         else:
             middle = math.floor((len(num3) / 2))
-            return print(num3[middle])
+            return num3[middle]
 
         # return number
     l=[1,3]
