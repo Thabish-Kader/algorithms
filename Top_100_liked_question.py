@@ -1,4 +1,5 @@
 
+import math
 from typing import List, Optional
 
 class Solution1:
@@ -71,11 +72,31 @@ class Solution3:
             for j in range(i,n):
                 if allUnique(i,j):
                     res = max(res,j-i+1)
-        return print(res)
-
-
-    
+        # return print(res)
     lengthOfLongestSubstring("abbbsssbbbd")
+
+class Solution4:
+    def findMedianSortedArrays( nums1, nums2):
+        # merge two list
+        num3=nums1 + nums2
+        num3.sort()
+        # find the length of list
+
+        # if even add middle numbers and divide by 2
+        if(len(num3) % 2 == 0):
+
+            middle = (len(num3) / 2)
+            median = (num3[int(middle - 1)]+num3[int(middle)])/2
+            return median
+        # if odd divide by 2
+        else:
+            middle = math.floor((len(num3) / 2))
+            return print(num3[middle])
+
+        # return number
+    l=[1,3]
+    l2=[2]
+    findMedianSortedArrays(l,l2)
 
         
 
