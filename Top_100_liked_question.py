@@ -1,7 +1,7 @@
 
 from typing import List, Optional
 
-class Solution:
+class Solution1:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         Input: nums = [2,7,11,15], target = 9
@@ -13,7 +13,7 @@ class Solution:
                 if(nums[i] + nums[j] == target):
                     return [i,j]
 
-class Solution:
+class Solution2:
     def addTwoNumbers( l1, l2):
         l1_reverse= l1[::-1]
         l2_reverse= l2[::-1]
@@ -34,4 +34,50 @@ class Solution:
     
     l1= [2,4,3]
     l2=[5,6,4]
-    print(addTwoNumbers(l1,l2))
+    # print(addTwoNumbers(l1,l2))
+
+class Solution3:
+    # def lengthOfLongestSubstring(s):
+    #     # convert a sting to list
+    #     list = [str (x) for x in s]
+    #     list2=[]
+    #     # check wether the letters exist new list
+    #     for i,v in enumerate(list):
+    #         try:
+    #             if(list[i] and list[i+1] != v):
+    #                 list2.append(v)
+    #         except IndexError:
+    #             pass
+
+    #     # add letters to new list 
+    #     print(len(list2))
+
+
+    # lengthOfLongestSubstring("abcabcbb")
+
+    def lengthOfLongestSubstring(s):
+        def allUnique(start,end):
+            chars = set()
+            for i in range(start,end):
+                c=s[i]
+                if c in chars:
+                    return False
+                chars.add(c)
+            return True
+        
+        n=len(s)
+        res=0
+        for i in range(n):
+            for j in range(i,n):
+                if allUnique(i,j):
+                    res = max(res,j-i+1)
+        return print(res)
+
+
+    
+    lengthOfLongestSubstring("abbbsssbbbd")
+
+        
+
+
+
