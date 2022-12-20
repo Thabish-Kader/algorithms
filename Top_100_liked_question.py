@@ -98,7 +98,27 @@ class Solution4:
     l2=[2]
     findMedianSortedArrays(l,l2)
 
-        
+class Solution5:
+    def longestPalindrome(s):
+        # read the string
+        mylist = list(s);
+
+        # reverse the string
+        reverseList = mylist[::-1]
+
+        # loop through the list
+        result = []
+        for i in range(len(mylist)):
+            print( reverseList[i])
+            if(mylist[i] == reverseList[i]):
+                result.append(mylist[i])
+        return print("".join(result))
+
+
+
+        # check wether they are equal
+
+    longestPalindrome("babad")
 
 
 
