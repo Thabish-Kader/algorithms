@@ -115,21 +115,64 @@ class Solution5:
     longestPalindrome("babad")
 
 class Solution6:
+    # did not solve this
     def convert(s : str, numRows: int) :
-        # convert the string to list
-        myList = list(s)
-        # slice the list based on the number provided
+        if numRows == 1:
+            return s 
+        
+        n = len(s)
+        section = math.ceil(n/(2*numRows - 2.0))
+        num_cols = section * (numRows - 1)
 
-        slices = len(myList)
-        slice = len(myList) // numRows
-        for i in range(0,slice):
-            print(myList[i])
+        matrix = [[" "] * num_cols for _ in range(numRows)]
+
+        curr_row, curr_col = 0,0
+        curr_string_index = 0
+
+        # iterate in zig-zag pattern on matrix and fill it with string characters
+        while curr_string_index < n :
+            # move down
+            while curr_row < numRows and curr_string_index < n:
+                matrix[curr_row][curr_col] = s[curr_string_index]
+                curr_row += 1
+                curr_string_index += 1
+
+            curr_row -= 2
+            curr_col += 1
+
+            # Move up (with moving right also).
+            while curr_row > 0 and curr_col < num_cols and curr_string_index < n:
+                matrix[curr_row][curr_col] = s[curr_string_index]
+                curr_row -= 1
+                curr_col += 1
+                curr_string_index += 1
+        
+        answer = ""
+        for row in matrix:
+            answer += "".join(row)
+            
+        return answer.replace(" ", "")
+
+class Solution7:
+    def reverse(x):
+        l = list(str(x))
+        if(l[0] == "-"):
+            l.pop(0)
+            reverse=l[::-1]
+            new_int = int("".join(reverse))
+
+            return -new_int
+            
 
 
-        # print the slices in differet lines
+        reverse = l[::-1]
+        new_int = int(''.join(reverse))
+        return new_int
+    
+    reverse(-123)
 
 
-    convert("PAYPALISHIRING",4)
+
 
 
 
