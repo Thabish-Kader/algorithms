@@ -101,7 +101,7 @@ class Solution4:
 class Solution5:
     def longestPalindrome(s):
         # read the string
-        mylist = list(s);
+        mylist = list(s)
 
         # reverse the string
         reverseList = mylist[::-1]
@@ -109,16 +109,27 @@ class Solution5:
         # loop through the list
         result = []
         for i in range(len(mylist)):
-            print( reverseList[i])
             if(mylist[i] == reverseList[i]):
                 result.append(mylist[i])
-        return print("".join(result))
-
-
-
-        # check wether they are equal
-
+        return ("".join(result))
     longestPalindrome("babad")
+
+class Solution6:
+    def convert(s : str, numRows: int) :
+        # convert the string to list
+        myList = list(s)
+        # slice the list based on the number provided
+
+        slices = len(myList)
+        slice = len(myList) // numRows
+        for i in range(0,slice):
+            print(myList[i])
+
+
+        # print the slices in differet lines
+
+
+    convert("PAYPALISHIRING",4)
 
 
 
