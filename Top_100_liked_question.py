@@ -171,6 +171,26 @@ class Solution7:
     
     reverse(-123)
 
+class Solution8:
+    def myAtoi(s):
+        # read the string
+        l = list(s)
+        neg=[]
+        # check wether there is - or +
+        if "-" in l:
+            l.remove("-")
+            numList = [ str (x) for x in l if x.isdigit() ]
+            result = int("".join(numList))
+
+        # return -result
+            return -result
+        # extarpulate the number
+        numList = [ str (x) for x in l if x.isdigit() ]
+        result = int("".join(numList))
+        return result
+
+        # return the number
+    myAtoi("-4193 with words")
 
 
 
