@@ -194,20 +194,10 @@ class Solution8:
 
 class Solution9:
     def isPalindrome(x:int):
-        if(x < 0): return False
-
-        l=list(str (x))
-        reverse = l[::-1]
-
-        num=int("".join(l))
-        num2=int("".join(reverse))
-
-        if(num == num2):
-            print( True)
-        else:
-            print(False)
-
-    isPalindrome(121)
+        y=str(x)[::-1]
+        if y == str(x): return True
+        else: return False
+    isPalindrome(-121)
 
 
 
