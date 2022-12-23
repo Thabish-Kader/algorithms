@@ -192,6 +192,23 @@ class Solution8:
         # return the number
     myAtoi("-4193 with words")
 
+class Solution9:
+    def isPalindrome(x:int):
+        if(x < 0): return False
+
+        l=list(str (x))
+        reverse = l[::-1]
+
+        num=int("".join(l))
+        num2=int("".join(reverse))
+
+        if(num == num2):
+            print( True)
+        else:
+            print(False)
+
+    isPalindrome(121)
+
 
 
 
