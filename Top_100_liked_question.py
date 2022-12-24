@@ -199,7 +199,27 @@ class Solution9:
         else: return False
     isPalindrome(-121)
 
+class Solution10:
+    def isMatch(s,p):
+        string = list(s)
+        pattern = list(p)
+        new_Stirng= []
+        # check if patter is *
+        if("*" in pattern):
+            index = pattern.index("*") - 1
+            # print (string[index])
+            for string[index] in string:
+                new_Stirng.append(string[index])
+                return True
+            print(new_Stirng)
+        elif("." in pattern):
+            index = pattern.index(".") -1
+            print (string[index])
+            for string[index] in string:
+                new_Stirng.append(string[index])
+                return True
+        # Then fo the logic
 
-
-
-
+        # check if patter is .
+        # compute logic
+    isMatch("aa",".a")
