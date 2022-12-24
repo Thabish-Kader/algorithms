@@ -200,26 +200,46 @@ class Solution9:
     isPalindrome(-121)
 
 class Solution10:
-    def isMatch(s,p):
-        string = list(s)
-        pattern = list(p)
-        new_Stirng= []
-        # check if patter is *
-        if("*" in pattern):
-            index = pattern.index("*") - 1
-            # print (string[index])
-            for string[index] in string:
-                new_Stirng.append(string[index])
-                return True
-            print(new_Stirng)
-        elif("." in pattern):
-            index = pattern.index(".") -1
-            print (string[index])
-            for string[index] in string:
-                new_Stirng.append(string[index])
-                return True
+    # def isMatch(s,p):
+    #     string = list(s)
+    #     pattern = list(p)
+    #     new_Stirng= []
+    #     # check if patter is *
+    #     if("*" in pattern):
+    #         index = pattern.index("*") - 1
+    #         # print (string[index])
+    #         for string[index] in string:
+    #             new_Stirng.append(string[index])
+    #             return True
+    #         print(new_Stirng)
+    #     elif("." in pattern):
+    #         index = pattern.index(".") -1
+    #         print (string[index])
+    #         for string[index] in string:
+    #             new_Stirng.append(string[index])
+    #             return True
+
+    #     else:
+    #         return False
         # Then fo the logic
 
         # check if patter is .
         # compute logic
-    isMatch("aa",".a")
+    # isMatch("aa",".a")
+    def isMatch(self,text,pattern):
+        if not pattern:
+            return not text
+
+        first_match = bool(text) and pattern[0] in {text[0], "."}
+
+
+        if len(pattern) >= 2 and pattern[1] == "*":
+            return(self.isMatch(text,pattern[2:]) or
+             first_match and self.isMatch(text[1:],pattern))
+        
+        else:
+            return first_match and self.isMatch(text[1:],pattern[1:])
+
+    
+sol = Solution10()
+print(sol.isMatch("aa",".*"))
