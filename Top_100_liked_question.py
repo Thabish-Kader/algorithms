@@ -241,5 +241,17 @@ class Solution10:
             return first_match and self.isMatch(text[1:],pattern[1:])
 
     
-sol = Solution10()
-print(sol.isMatch("aa",".*"))
+# sol = Solution10()
+# print(sol.isMatch("aa",".*"))
+
+class Solution11:
+    def maxArea(h):
+        maxArea = 0
+        for left in range(len(h)):
+            for right in range(left + 1,len(h)):
+                width = right - left
+                maxArea = max(maxArea, min(h[left], h[right])*width)
+                print(maxArea)
+    maxArea([1,8,6,2,5,4,8,3,7])
+
+
