@@ -251,7 +251,7 @@ class Solution11:
             for right in range(left + 1,len(h)):
                 width = right - left
                 maxArea = max(maxArea, min(h[left], h[right])*width)
-                print(maxArea)
+        print(maxArea)
     maxArea([1,8,6,2,5,4,8,3,7])
 
 
