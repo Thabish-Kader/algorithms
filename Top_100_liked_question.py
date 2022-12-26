@@ -260,12 +260,32 @@ class Solution11:
                 width = right - left
                 maxarea = max(maxarea, min(h[left], h[right] )* width)
 
-                print(width,maxarea)
+
                 if h[left] <= h[right]:
                     left +=1
                 else:
                     right -=1
 
         maxArea([1,8,6,2,5,4,8,3,7])
+
+class Solution12:
+    def intToRoman(self, num:int):
+        place = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
+        sym=["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"]
+        symbol = ""
+        i =12
+
+        while num:
+            div = num // place[i]
+            num %= place[i]
+
+            while div:
+                symbol += sym[i]
+                div -=1
+            i -=1
+        return symbol
+sol = Solution12()
+print(sol.intToRoman(1994))
+
 
 
