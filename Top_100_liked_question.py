@@ -245,13 +245,27 @@ class Solution10:
 # print(sol.isMatch("aa",".*"))
 
 class Solution11:
-    def maxArea(h):
-        maxArea = 0
-        for left in range(len(h)):
-            for right in range(left + 1,len(h)):
+    # def maxArea(h):
+        # maxArea = 0
+        # for left in range(len(h)):
+        #     for right in range(left + 1,len(h)):
+        #         width = right - left
+        #         maxArea = max(maxArea, min(h[left], h[right])*width)
+        # print(maxArea)
+        def maxArea(h):
+            maxarea = 0
+            left = 0
+            right = len(h) - 1
+            while left < right:
                 width = right - left
-                maxArea = max(maxArea, min(h[left], h[right])*width)
-        print(maxArea)
-    maxArea([1,8,6,2,5,4,8,3,7])
+                maxarea = max(maxarea, min(h[left], h[right] )* width)
+
+                print(width,maxarea)
+                if h[left] <= h[right]:
+                    left +=1
+                else:
+                    right -=1
+
+        maxArea([1,8,6,2,5,4,8,3,7])
 
 
