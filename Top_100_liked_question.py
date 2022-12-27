@@ -291,16 +291,25 @@ sol = Solution12()
 # print(sol.intToRoman(1994))
 
 class Solution13:
+    charToNum = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
+    }
     def romanToInt(self, s:str) : 
-        sym=["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"]
-        place = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
-        sum = 0
-        for i in s:
-            if(i in sym):
-                index = sym.index(i)
-                sum += place[index] 
-                print(sum)
-        return sum
+        prev = 0 
+        total = 0
+        for numeral in s:
+            cur = self.charToNum[numeral]
+            total += cur if cur>=prev else -1*cur
+            print(self.charToNum[numeral],total)
+            prev = cur
+        print (total)
+
 
 sol13 = Solution13()
 sol13.romanToInt("MCMXCIV")
