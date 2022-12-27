@@ -275,17 +275,35 @@ class Solution12:
         symbol = ""
         i =12
 
-        while num:
+        while num :
             div = num // place[i]
             num %= place[i]
+            print(div)
 
             while div:
                 symbol += sym[i]
                 div -=1
-            i -=1
-        return symbol
+            i-=1
+        return symbol  
+
+
 sol = Solution12()
-print(sol.intToRoman(1994))
+# print(sol.intToRoman(1994))
+
+class Solution13:
+    def romanToInt(self, s:str) : 
+        sym=["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"]
+        place = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
+        sum = 0
+        for i in s:
+            if(i in sym):
+                index = sym.index(i)
+                sum += place[index] 
+                print(sum)
+        return sum
+
+sol13 = Solution13()
+sol13.romanToInt("MCMXCIV")
 
 
 
