@@ -308,11 +308,29 @@ class Solution13:
             curr = charToNum[i]
             total +=curr if curr>prev else -1*curr
             prev = curr
-        print(total)
+
+class Solution14:
+    def longestCommonPrefix(self, strs: List[str]):
+
+        if not strs:
+            return ""
+        count=0
+        for letter_group in zip(*strs):
+            if(len(set(letter_group))>1):
+                break
+            count = count + 1
+
+        print(strs[0][0:count])
+                
+
+                
+
+        # compare the letters in sts
+
+sol14 = Solution14()
+sol14.longestCommonPrefix(["flower","flow","flight"])
 
 
-sol13 = Solution13()
-sol13.romanToInt("MCMXCIV")
 
 
 
