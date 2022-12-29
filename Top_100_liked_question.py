@@ -337,10 +337,24 @@ class Solution14:
                 
 
         # compare the letters in sts
+class Solution15:
+    def threeSum(self, nums: List[int]):
+        # break the list to multiples of three
+        slices = nums/3
+        
 
-sol14 = Solution14()
-sol14.longestCommonPrefix(["flower","flow","flight"])
+        # loop throght the list
+        for num in nums:
+            print(num)
+        # check the first  3 nums
 
+        # if = 0 return
+
+        # else return empty list
+
+sol15 = Solution15()
+
+sol15.threeSum([-1,0,1,2,-1,-4])
 
 
 
