@@ -312,16 +312,26 @@ class Solution13:
 class Solution14:
     def longestCommonPrefix(self, strs: List[str]):
 
+    #     if not strs:
+    #         return ""
+    #     count=0
+    #     for letter_group in zip(*strs):
+    #         print(letter_group)
+    #         if(len(set(letter_group))>1):
+    #             break
+    #         count = count + 1
+
+    #     return(strs[0][0:count])
         if not strs:
             return ""
-        count=0
-        for letter_group in zip(*strs):
-            print(len(set(letter_group)))
-            if(len(set(letter_group))>1):
-                break
-            count = count + 1
+        
+        letters = ""
+        for letter in zip(*strs):
+            if (len(set(letter)) == 1):
+                letters += letter[0]
 
-        return(strs[0][0:count])
+            else: break
+        print(letters)
                 
 
                 
