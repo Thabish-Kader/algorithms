@@ -316,11 +316,12 @@ class Solution14:
             return ""
         count=0
         for letter_group in zip(*strs):
+            print(len(set(letter_group)))
             if(len(set(letter_group))>1):
                 break
             count = count + 1
 
-        print(strs[0][0:count])
+        return(strs[0][0:count])
                 
 
                 
