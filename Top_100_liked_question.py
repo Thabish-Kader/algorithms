@@ -361,6 +361,10 @@ sol15 = Solution15()
 
 sol15.threeSum([-1,0,1,2,-1,-4])
 
+class Solution16:
+    def threeSumCloset(self, nums:List[int]):
+        
+
 
 
 
