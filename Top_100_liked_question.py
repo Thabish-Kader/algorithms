@@ -354,16 +354,23 @@ class Solution15:
                 target = twoSum - nums[j]
                 if target in lookupDict and lookupDict[target] > j:
                     res.add((-twoSum,nums[j],target))
-        print(res)
+        # print(res)
 
 
-sol15 = Solution15()
+# sol15 = Solution15()
 
-sol15.threeSum([-1,0,1,2,-1,-4])
+# sol15.threeSum([-1,0,1,2,-1,-4])
 
 class Solution16:
-    def threeSumCloset(self, nums:List[int]):
-        
+    def threeSumCloset(self, nums:List[int], target):
+        sum = 0
+        for num in nums:
+            if(num < target):
+                sum += num
+        print(sum)
+
+sol16 = Solution16()
+sol16.threeSumCloset([-1,2,1,-4],1)
 
 
 
