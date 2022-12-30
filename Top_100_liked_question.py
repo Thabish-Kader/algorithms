@@ -363,11 +363,33 @@ class Solution15:
 
 class Solution16:
     def threeSumCloset(self, nums:List[int], target):
-        sum = 0
-        for num in nums:
-            if(num < target and num > target):
-                sum += num
-        print(sum)
+        if not nums or len(nums) < 3:
+            return []
+        nums.sort()
+        closest = nums[0] + nums[1] + nums[2]
+        max_error = abs(closest - target)
+
+        for i in range(len(nums) - 2):
+            if(i >= 1 and nums[i] == nums[i-1]):
+                continue
+            base = nums[i]
+            lp = i+1
+            rp = len(nums) -1 
+            s = base + nums[lp] + nums[rp]
+            while lp < rp :
+                s = base + nums[lp] + nums[rp] 
+                if abs(s - target) < max_error:
+                    max_error = abs(s - target)
+                    closest = s
+                    
+                if s < target : # s < target means lp go right
+                    lp += 1                    
+                elif s > target : 
+                    rp -= 1
+                else:
+                    return target
+        print(closest)
+        return closest 
 
 sol16 = Solution16()
 sol16.threeSumCloset([-1,2,1,-4],1)
