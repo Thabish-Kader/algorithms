@@ -338,19 +338,24 @@ class Solution14:
 
         # compare the letters in sts
 class Solution15:
+    # TODO: Repeat this question not clear
     def threeSum(self, nums: List[int]):
-        # break the list to multiples of three
-        slices = nums/3
-        
 
-        # loop throght the list
-        for num in nums:
-            print(num)
-        # check the first  3 nums
+        nums.sort()
+        res= set()
+        lookupDict = {}
+        for i in range(len(nums)):
+            lookupDict[nums[i]] == i
+        for i in range(len(nums)):
+            if i != 0 and nums[i] == nums[i-1]:
+                continue
+            twoSum = -nums[i]
+            for j in range(i+1, len(nums)):
+                target = twoSum - nums[j]
+                if target in lookupDict and lookupDict[target] > j:
+                    res.add((-twoSum,nums[j],target))
+        print(res)
 
-        # if = 0 return
-
-        # else return empty list
 
 sol15 = Solution15()
 
