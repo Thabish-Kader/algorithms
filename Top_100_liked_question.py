@@ -365,7 +365,7 @@ class Solution16:
     def threeSumCloset(self, nums:List[int], target):
         sum = 0
         for num in nums:
-            if(num < target):
+            if(num < target and num > target):
                 sum += num
         print(sum)
 
