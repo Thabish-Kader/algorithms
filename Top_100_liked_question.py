@@ -362,37 +362,36 @@ class Solution15:
 # sol15.threeSum([-1,0,1,2,-1,-4])
 
 class Solution16:
+    # TODO: redo
     def threeSumCloset(self, nums:List[int], target):
-        if not nums or len(nums) < 3:
-            return []
-        nums.sort()
-        closest = nums[0] + nums[1] + nums[2]
-        max_error = abs(closest - target)
-
-        for i in range(len(nums) - 2):
-            if(i >= 1 and nums[i] == nums[i-1]):
-                continue
-            base = nums[i]
-            lp = i+1
-            rp = len(nums) -1 
-            s = base + nums[lp] + nums[rp]
-            while lp < rp :
-                s = base + nums[lp] + nums[rp] 
-                if abs(s - target) < max_error:
-                    max_error = abs(s - target)
-                    closest = s
-                    
-                if s < target : # s < target means lp go right
-                    lp += 1                    
-                elif s > target : 
-                    rp -= 1
-                else:
+        n = len(nums)
+        if n == 0:
+            return 0
+        if n < 3:
+            return sum(nums)
+        nums_up = sorted(nums)
+        res = sum(nums_up[0:3]) # initialze the result 
+        i, lo, hi = 0, 0, 0
+        for i in range(n):            
+            diff_tar = target - nums_up[i]  # difference to target
+            lo, hi = i+1, n-1   # two pointers
+            # two-pointer search
+            while lo < hi:
+                sum_two = nums_up[lo] + nums_up[hi] # current sum of the two
+                if abs(nums_up[i]+sum_two-target) < abs(res-target):    # update result if current sum of the three is closer than current result
+                    res = nums_up[i] + sum_two
+                if sum_two == diff_tar: # sum of the three equals target
                     return target
-        print(closest)
-        return closest 
+                elif sum_two < diff_tar: # sum is smaller than target, we try bigger 'lo' to move closer to target. (not certainly closer, but possible) 
+                    lo += 1
+                else:   # sum is bigger than target, we try smaller 'hi' to move closer to target. (not certainly closer, but possible)
+                    hi -= 1
+        
+        return res
 
-sol16 = Solution16()
-sol16.threeSumCloset([-1,2,1,-4],1)
+
+# sol16 = Solution16()
+# sol16.threeSumCloset([-1,2,1,-4],1)
 
 
 
