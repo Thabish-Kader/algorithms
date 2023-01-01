@@ -1,4 +1,5 @@
 
+from itertools import product
 import math
 from typing import List, Optional
 
@@ -395,12 +396,16 @@ class Solution16:
 
 class Solution17:
     def letterCombinations(self, digits: str):
-        digit = list(str(digits))
-        dig = {2:"abc",3:"def",4:"ghi",5:"jkl",6:"mno",7:"pqrs",8:"tuv", 9:"wxyz"}
-        for i in digit:
-            index = int(i)
-            letters = dig[index]
-            print(letters)
+
+        dic = {"2":"abc","3":"def","4":"ghi","5":"jkl","6":"mno","7":"pqrs","8":"tuv", "9":"wxyz"}
+
+        res = []
+        iterables = list(dic[i] for i in digits )
+        for x in product(*iterables):
+            element = "".join(x)
+            res.append(element)
+        print(res)
+
 
 sol17 = Solution17()
-sol17.letterCombinations(23)
+sol17.letterCombinations("23")
