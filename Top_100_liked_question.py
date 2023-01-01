@@ -401,11 +401,12 @@ class Solution17:
 
         res = []
         iterables = list(dic[i] for i in digits )
-        for x in product(*iterables):
-            element = "".join(x)
-            res.append(element)
+        # for x in product(*iterables):
+        #     element = "".join(x)
+        #     res.append(element)
+        # print(res)
+        res = ["".join(x) for x in product(*iterables)]
         print(res)
-
 
 sol17 = Solution17()
 sol17.letterCombinations("23")
