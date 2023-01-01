@@ -393,6 +393,14 @@ class Solution16:
 # sol16 = Solution16()
 # sol16.threeSumCloset([-1,2,1,-4],1)
 
+class Solution17:
+    def letterCombinations(self, digits: str):
+        digit = list(str(digits))
+        dig = {2:"abc",3:"def",4:"ghi",5:"jkl",6:"mno",7:"pqrs",8:"tuv", 9:"wxyz"}
+        for i in digit:
+            index = int(i)
+            letters = dig[index]
+            print(letters)
 
-
-
+sol17 = Solution17()
+sol17.letterCombinations(23)
