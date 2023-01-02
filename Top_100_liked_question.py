@@ -400,7 +400,7 @@ class Solution17:
         dic = {"2":"abc","3":"def","4":"ghi","5":"jkl","6":"mno","7":"pqrs","8":"tuv", "9":"wxyz"}
 
         res = []
-        iterables = list(dic[i] for i in digits )
+        iterables = [dic[i] for i in digits ]
         # for x in product(*iterables):
         #     element = "".join(x)
         #     res.append(element)
@@ -408,5 +408,23 @@ class Solution17:
         res = ["".join(x) for x in product(*iterables)]
         print(res)
 
-sol17 = Solution17()
-sol17.letterCombinations("23")
+# sol17 = Solution17()
+# sol17.letterCombinations("23")
+
+class Solution18:
+    def fourSum(self, nums:List[int], target:int):
+        n = len(nums)
+        seen = set()
+        ans = set()
+        for i in range(n):
+            for j in range(i+1, n):
+                for k in range(j+1, n):
+                    lastNumber = target - nums[i] - nums[j] - nums[k]
+                    if lastNumber in seen:
+                        arr = sorted([nums[i], nums[j], nums[k], lastNumber])
+                        ans.add((arr[0], arr[1], arr[2], arr[3]))
+            seen.add(nums[i])
+        return( ans)
+
+sol18 = Solution18()
+print(sol18.fourSum([1,0,-1,0,-2,2],8))
