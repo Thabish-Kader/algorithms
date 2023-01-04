@@ -501,3 +501,17 @@ class Solution18:
 
 # sol18 = Solution18()
 # print(sol18.fourSum([1,0,-1,0,-2,2],8))
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+# class Solution19: #https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+#      def removeNthFromEnd(self, head, n: int):
+
+class Solution20: #https://leetcode.com/problems/valid-parentheses/
+    def isValid(self,s):
+        for i in s:
+            print(i)
+
+sol20 = Solution20()
+sol20.isValid("()[]{}")
