@@ -10,10 +10,21 @@ class Solution1:
         Output: [0,1]
         Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
         """
-        for i in range(len(nums)):
-            for j in range(i+1,len(nums)):
-                if(nums[i] + nums[j] == target):
-                    return [i,j]
+        # for i in range(len(nums)):
+        #     for j in range(i+1,len(nums)):
+        #         if(nums[i] + nums[j] == target):
+        #             return [i,j]
+        seen = {} 
+        for i,value in enumerate(nums):
+            remaining = target - nums[i]
+
+            if remaining in seen:
+                return [i,seen[remaining]]
+            else:
+                seen[value] = i
+
+
+        
 
 class Solution2:
     def addTwoNumbers( l1, l2):
@@ -333,34 +344,81 @@ class Solution14:
 
             else: break
         print(letters)
-                
 
-                
+class TwoSum(): # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:        
+        seen = {}
+        for i,value in enumerate(numbers):
+            remaining = target - numbers[i]
 
+            if remaining in seen:
+                return [seen[remaining]+1, i+1]
+            else :
+                 seen[value] = i
+sol = TwoSum()
+sol.twoSum([2,7,11,15],9)
         # compare the letters in sts
-class Solution15:
-    # TODO: Repeat this question not clear
+class Solution15:  
     def threeSum(self, nums: List[int]):
 
+        # nums.sort()
+        # res = []
+
+        # for i in range(len(nums) -2): #1
+
+        #     if i > 0 and nums[i] == nums[i-1]: #2
+        #         continue
+        #     left = i + 1 #3
+        #     right = len(nums) - 1 #4
+            
+        #     while left < right:  
+        #         temp = nums[i] + nums[left] + nums[right]
+                                    
+        #         if temp > 0:
+        #             right -= 1
+                    
+        #         elif temp < 0:
+        #             left += 1
+                
+        #         else:
+        #             res.append([nums[i], nums[left], nums[right]]) #5
+        #             while left < right and nums[left] == nums[left + 1]: #6
+        #                 left += 1
+        #             while left < right and nums[right] == nums[right-1]:#7
+        #                 right -= 1    #8
+                
+        #             right -= 1 #9 
+        #             left += 1 #10
         nums.sort()
-        res= set()
-        lookupDict = {}
-        for i in range(len(nums)):
-            lookupDict[nums[i]] == i
-        for i in range(len(nums)):
-            if i != 0 and nums[i] == nums[i-1]:
+        res = []
+
+        for i in range(len(nums) -2):
+            if (i > 0 and nums[i] == nums[i-1]):
                 continue
-            twoSum = -nums[i]
-            for j in range(i+1, len(nums)):
-                target = twoSum - nums[j]
-                if target in lookupDict and lookupDict[target] > j:
-                    res.add((-twoSum,nums[j],target))
-        # print(res)
+            left = i +1
+            right = len(nums)-1
+
+            while left < right:
+                temp = nums[i] + nums[left] + nums[right]
+
+                if temp > 0:
+                    right -=1
+                elif temp < 0:
+                    left +=1
+                else:
+                    res.append([nums[i],nums[left],nums[right]])
+                    while left < right and nums[left] == nums[left+1]:
+                        left +=1
+                    while left < right and nums[right] == nums[right-1]:
+                        right -=1
+                    right -=1
+                    left +=1
+                    
 
 
-# sol15 = Solution15()
+sol15 = Solution15()
 
-# sol15.threeSum([-1,0,1,2,-1,-4])
+sol15.threeSum([-1,0,1,2,-1,-4])
 
 class Solution16:
     # TODO: redo
@@ -412,19 +470,34 @@ class Solution17:
 # sol17.letterCombinations("23")
 
 class Solution18:
+    # A very helpful guide for sum problems https://leetcode.com/problems/4sum/solutions/737096/sum-megapost-python3-solution-with-a-detailed-explanation/
     def fourSum(self, nums:List[int], target:int):
-        n = len(nums)
+        # n = len(nums)
+        # seen = set()
+        # ans = set()
+        # for i in range(n):
+        #     for j in range(i+1, n):
+        #         for k in range(j+1, n):
+        #             lastNumber = target - nums[i] - nums[j] - nums[k]
+        #             if lastNumber in seen:
+        #                 arr = sorted([nums[i], nums[j], nums[k], lastNumber])
+        #                 ans.add((arr[0], arr[1], arr[2], arr[3]))
+        #     seen.add(nums[i])
+        # return(ans)
+
+        n= len(nums)
         seen = set()
-        ans = set()
+        ans= set()
+
         for i in range(n):
-            for j in range(i+1, n):
-                for k in range(j+1, n):
-                    lastNumber = target - nums[i] - nums[j] - nums[k]
-                    if lastNumber in seen:
-                        arr = sorted([nums[i], nums[j], nums[k], lastNumber])
+            for j in range (i+1,n):
+                for k in range (j+1,n):
+                    remaining = target - nums[i] - nums[j] - nums[k]
+                    if remaining in seen:
+                        arr = sorted([nums[i], nums[j], nums[k], remaining])
                         ans.add((arr[0], arr[1], arr[2], arr[3]))
             seen.add(nums[i])
-        return( ans)
+        return ans
 
-sol18 = Solution18()
-print(sol18.fourSum([1,0,-1,0,-2,2],8))
+# sol18 = Solution18()
+# print(sol18.fourSum([1,0,-1,0,-2,2],8))
