@@ -510,8 +510,18 @@ class ListNode:
 
 class Solution20: #https://leetcode.com/problems/valid-parentheses/
     def isValid(self,s):
-        for i in s:
-            print(i)
+        n = len(s)
+        for i in range(n):
+            for j in range(i+1,n):
+                if s[i] == "(" and s[j] ==")":
+                    print( True)
+                elif s[i] == "{" and s[j] =="}":
+                    print(True)
+                elif s[i] == "[" and s[j] =="]":
+                    print(True)
+                else:
+                    print( False)
+                
 
 sol20 = Solution20()
-sol20.isValid("()[]{}")
+sol20.isValid("{[]}")
