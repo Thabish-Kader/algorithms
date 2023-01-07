@@ -513,23 +513,24 @@ class Solution20: #https://leetcode.com/problems/valid-parentheses/
         ack = []
         lookfor = {')':'(', '}':'{', ']':'['}
 
-        # for p in s:
-        #     if p in lookfor.values():
-        #         ack.append(p)
-        #     elif ack and lookfor[p] == ack[-1]:
+        lookUp = {'(':')', '{':'}', '[':']'}
+        print(lookfor.keys())
+        # for char in s:
+        #     if char in lookfor.values():
+        #         ack.append(char)
+        #     elif ack and lookfor[char] == ack[-1]:
         #         ack.pop()
         #     else:
-        #         print( False)
-
+        #         print(False)    
         # print( ack == [])
-
         for char in s:
-            if char in lookfor.values():
+            # print(lookfor[char])
+            if char in lookUp.keys():
                 ack.append(char)
             elif ack and lookfor[char] == ack[-1]:
                 ack.pop()
             else:
-                print(False)    
+                return False
         print( ack == [])
 
 
