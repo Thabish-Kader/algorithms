@@ -534,5 +534,52 @@ class Solution20: #https://leetcode.com/problems/valid-parentheses/
         print( ack == [])
 
 
-sol20 = Solution20()
-sol20.isValid("{[[]]}")
+# sol20 = Solution20()
+# sol20.isValid("{[[]]}")
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+class Solution21 :
+    #TODO: redo
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) :
+        newHead = dummyHead = ListNode()
+        while list1 and list2:
+            if list1.val < list2.val:
+                dummyHead.next = list1
+                list1 = list1.next
+            else:
+                dummyHead.next = list2
+                list2 = list2.next
+            dummyHead = dummyHead.next
+        if list1:
+            dummyHead.next = list1
+        if list2:
+            dummyHead.next = list2
+        return newHead.next
+
+
+# sol21 = Solution21()
+# print(sol21.mergeTwoLists([1,2,4],[1,3,4]))
+
+class Solution22:
+    def generateParenthesis(self,n:int):
+
+
+        def backtrack(open,close,s):
+            if len(s) == n*2:
+                res.append(s)
+                return
+        
+            if open < n : 
+                backtrack(open+1,close,s+"(")
+
+            if close < open : 
+                backtrack(open,close + 1,s +")")
+
+        res = []
+        backtrack(0,0,"")
+        print(res)
+        
+sol22 = Solution22()
+sol22.generateParenthesis(3)
