@@ -565,7 +565,6 @@ class Solution21 :
 class Solution22:
     def generateParenthesis(self,n:int):
 
-
         def backtrack(open,close,s):
             if len(s) == n*2:
                 res.append(s)
@@ -581,5 +580,26 @@ class Solution22:
         backtrack(0,0,"")
         print(res)
         
-sol22 = Solution22()
-sol22.generateParenthesis(3)
+# sol22 = Solution22()
+# sol22.generateParenthesis(3)
+
+class Solution23:
+    def mergeKLists(self, lists):
+        head = temp = ListNode()
+        arr = []
+
+        for l in lists:
+            while l !=None:
+                arr.append(l.val)
+                l = l.next
+
+        for val in sorted(arr):
+            temp.next = ListNode()
+            temp= temp.next
+            temp.val = val
+
+        return head.next
+
+
+sol23 = Solution23()
+sol23.mergeKLists([[1,4,5],[1,3,4],[2,6]])
