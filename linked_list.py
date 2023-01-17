@@ -113,6 +113,14 @@ class Sll:
         while a.next is not None:
             a= a.next
         a.next=ne
+    
+    def insert_at_specified_node(self,postition,data):
+        nib = Node(data)
+        a = self.head
+        for i in range(1,postition-1):
+            a=a.next
+            nib.next = a.next
+            a.next = nib
 
 sll = Sll()
 n1=Node(5)
@@ -125,8 +133,9 @@ n4=Node(25)
 n3.next=n4
 n5=Node(30)
 n4.next=n5
-# sll.traversal()
+
 sll.insert_at_beginning(2)
 sll.insert_at_end(25)
+sll.insert_at_specified_node(3,7)
 sll.traversal()
 
