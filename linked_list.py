@@ -108,9 +108,11 @@ class Sll:
         self.head = nb
     
     def insert_at_end(self,data):
-        ne = Node(data)
-        ne.next = None
-        n4.next = ne
+        ne=Node(data)
+        a = self.head
+        while a.next is not None:
+            a= a.next
+        a.next=ne
 
 sll = Sll()
 n1=Node(5)
@@ -125,5 +127,6 @@ n5=Node(30)
 n4.next=n5
 # sll.traversal()
 sll.insert_at_beginning(2)
+sll.insert_at_end(25)
 sll.traversal()
 
