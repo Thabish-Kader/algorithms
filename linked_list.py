@@ -46,13 +46,12 @@ class Sll:
         temp.next = None
     
     def delete_at_end(self):
-        a = self.head
-        b = self.head.next
+        prev = self.head
+        a = prev.next
         while a.next is not None:
             a = a.next
-            b = b.next
-            if b.next is None:
-                a.next = None
+            prev = prev.next
+        prev.next = None
 
 
 
