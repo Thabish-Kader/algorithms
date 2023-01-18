@@ -44,6 +44,16 @@ class Sll:
         # Move the head pointer to the next node
         self.head = temp.next
         temp.next = None
+    
+    def delete_at_end(self):
+        a = self.head
+        b = self.head.next
+        while a.next is not None:
+            a = a.next
+            b = b.next
+            if b.next is None:
+                a.next = None
+
 
 
 sll = Sll()
@@ -69,5 +79,8 @@ sll.insert_at_specified_node(3,7)
 sll.traversal()
 print()
 sll.delete_at_benginning()
+sll.traversal()
+print()
+sll.delete_at_end()
 sll.traversal()
 
