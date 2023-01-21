@@ -3,6 +3,13 @@ from itertools import product
 import math
 from typing import List, Optional
 
+class Node :
+    def __init__(self,data) -> None:
+        self.data= data
+        self.next = None
+
+
+
 class Solution1:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
@@ -601,5 +608,53 @@ class Solution23:
         return head.next
 
 
-sol23 = Solution23()
-sol23.mergeKLists([[1,4,5],[1,3,4],[2,6]])
+# sol23 = Solution23()
+# sol23.mergeKLists([[1,4,5],[1,3,4],[2,6]])
+
+
+class Sll:
+    def __init__(self) -> None:
+        self.head = None
+    
+    def traversal(self):
+        if self.head is None:
+            print("Singly linked list is empty")
+        else:
+            a= self.head
+            while a is not None:
+                print (a.data,end =" ")
+                a = a.next
+
+    def swapPairs(self):
+        # if not self.head or not self.head.next: return self.head
+        dummy = ListNode(0)
+        dummy.next = self.head
+        cur = dummy
+        
+        while cur.next and cur.next.next:
+            first = cur.next
+            sec = cur.next.next
+            cur.next = sec
+            first.next = sec.next
+            sec.next = first
+            cur = cur.next.next
+        return (dummy.next)
+
+sll = Sll()
+n1=Node(1)
+sll.head=n1
+n2=Node(2)
+n1.next=n2
+n3=Node(3)
+n2.next=n3
+n4=Node(4)
+n3.next=n4
+# n5=Node(30)
+# n4.next=n5
+sll.traversal()
+print()
+sll.swapPairs()
+sll.traversal()
+
+# class Solution24:
+    

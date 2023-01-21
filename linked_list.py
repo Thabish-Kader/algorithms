@@ -53,6 +53,21 @@ class Sll:
             prev = prev.next
         prev.next = None
 
+    def delete_at_pos(self,position):
+        print()
+        prev = self.head
+        a = self.head.next
+        for i in range(1,position-1):
+            print(i)
+            prev = prev.next
+            a = a.next
+            
+        prev.next = a.next
+        a.next = None
+
+
+
+
 
 
 sll = Sll()
@@ -80,6 +95,6 @@ print()
 sll.delete_at_benginning()
 sll.traversal()
 print()
-sll.delete_at_end()
+sll.delete_at_pos(3)
 sll.traversal()
 
