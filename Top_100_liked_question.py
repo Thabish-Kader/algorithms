@@ -624,22 +624,6 @@ class Sll:
             while a is not None:
                 print (a.data,end =" ")
                 a = a.next
-
-    def swapPairs(self):
-        # if not self.head or not self.head.next: return self.head
-        dummy = ListNode(0)
-        dummy.next = self.head
-        cur = dummy
-        
-        while cur.next and cur.next.next:
-            first = cur.next
-            sec = cur.next.next
-            cur.next = sec
-            first.next = sec.next
-            sec.next = first
-            cur = cur.next.next
-        return (dummy.next)
-
 sll = Sll()
 n1=Node(1)
 sll.head=n1
@@ -653,8 +637,23 @@ n3.next=n4
 # n4.next=n5
 sll.traversal()
 print()
-sll.swapPairs()
-sll.traversal()
+class Solution24:
+    def swapPairs(self):
+        if not self.head or not self.head.next: return self.head
+        dummy = ListNode(0)
+        dummy.next = self.head
+        cur = dummy
+        
+        while cur.next and cur.next.next:
+            first = cur.next
+            sec = cur.next.next
+            cur.next = sec
+            first.next = sec.next
+            sec.next = first
+            cur = cur.next.next
+        return (dummy.next)
+
+
 
 # class Solution24:
     
