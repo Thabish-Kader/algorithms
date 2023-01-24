@@ -624,19 +624,19 @@ class Sll:
             while a is not None:
                 print (a.data,end =" ")
                 a = a.next
-sll = Sll()
-n1=Node(1)
-sll.head=n1
-n2=Node(2)
-n1.next=n2
-n3=Node(3)
-n2.next=n3
-n4=Node(4)
-n3.next=n4
-# n5=Node(30)
-# n4.next=n5
-sll.traversal()
-print()
+# sll = Sll()
+# n1=Node(1)
+# sll.head=n1
+# n2=Node(2)
+# n1.next=n2
+# n3=Node(3)
+# n2.next=n3
+# n4=Node(4)
+# n3.next=n4
+# # n5=Node(30)
+# # n4.next=n5
+# sll.traversal()
+# print()
 class Solution24:
     def swapPairs(self):
         if not self.head or not self.head.next: return self.head
@@ -655,5 +655,22 @@ class Solution24:
 
 
 
-# class Solution24:
-    
+class Solution26:
+    def removeDuplicates(self, nums: List[int]):
+        dum = []
+
+        for i,num in enumerate(nums):
+            if num in dum:
+                nums[i]="_"
+
+            else: 
+                dum.append(num)
+        for i in nums:
+            if i == "_":
+                dum.append(i)
+            
+        print(dum)
+
+
+sol26 = Solution26()
+sol26.removeDuplicates([0,0,1,1,1,2,2,3,3,4])
