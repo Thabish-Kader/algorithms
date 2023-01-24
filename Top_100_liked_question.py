@@ -657,19 +657,17 @@ class Solution24:
 
 class Solution26:
     def removeDuplicates(self, nums: List[int]):
-        dum = []
+        size = len(nums)
+        insertIndex = 1
+        for i in range(1, size):
+            # Found unique element
+            if nums[i - 1] != nums[i]:      
+                # Updating insertIndex in our main array
+                nums[insertIndex] = nums[i] 
+                # Incrementing insertIndex count by 1 
+                insertIndex = insertIndex + 1       
+        print(insertIndex)
 
-        for i,num in enumerate(nums):
-            if num in dum:
-                nums[i]="_"
-
-            else: 
-                dum.append(num)
-        for i in nums:
-            if i == "_":
-                dum.append(i)
-            
-        print(dum)
 
 
 sol26 = Solution26()
