@@ -672,3 +672,21 @@ class Solution26:
 
 sol26 = Solution26()
 sol26.removeDuplicates([0,0,1,1,1,2,2,3,3,4])
+
+# class Solution27:
+#     def removeElement(self, nums: List[int],val:int):
+#         size = len(nums)
+#         insertIndex = 1
+#         for i in range(1, size):
+#             # Found unique element
+#             if nums[i - 1] != nums[i]:      
+#                 # Updating insertIndex in our main array
+#                 nums[insertIndex] = nums[i] 
+#                 # Incrementing insertIndex count by 1 
+#                 insertIndex = insertIndex + 1       
+#         print(insertIndex)
+
+
+
+# sol27 = Solution27()
+# sol26.removeElement([0,0,1,1,1,2,2,3,3,4])
