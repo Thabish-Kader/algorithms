@@ -689,9 +689,38 @@ class Solution27:
 
             k+=1
         print( k)
+
+# sol27 = Solution27()
+# sol27.removeElement([0,1,2,2,3,0,4,2],2)
+
+class Solution28:
+    def strStr(self, haystack: str, needle: str):
+        if needle in haystack:
+            print( haystack.index(needle))
+        else : print( -1)
+       
+
+# sol28 = Solution28()
+# sol28.strStr("bsadbutsad","sad")
+
+# class Solution29:
+#     def divide(self, dividend: int, divisor: int) :
         
+       
+
+# sol29 = Solution29()
+# sol29.strStr("bsadbutsad","sad")
+
+class Solution30():
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        list_length = len(words)
+        substring_length = len(words[0])
+        flist =list_length*substring_length
+
+        for i in range(len(words)):
+            if words[i] in s:
+                print(s.index(words[i]))
 
 
-
-sol27 = Solution27()
-sol27.removeElement([0,1,2,2,3,0,4,2],2)
+sol30 = Solution30()
+sol30.findSubstring("barfoothefoobarman",["foo","bar"])
