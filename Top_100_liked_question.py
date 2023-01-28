@@ -708,8 +708,6 @@ class Solution28:
         
        
 
-# sol29 = Solution29()
-# sol29.strStr("bsadbutsad","sad")
 
 class Solution30():
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
